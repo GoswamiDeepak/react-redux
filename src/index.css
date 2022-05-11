@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  /* font-family: 'Karla', sans-serif; */
+  font-family: 'Poppins', sans-serif;
+}
+.product-design {
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap : 20px;
+}
+.cart-wrapper {
+  border: 1px solid blueviolet;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* box-shadow: 10px 10px 20px -5px grey; */
+
+}
+.img-wrapper img {
+    width: 100px;
+    height: 150;
+    margin: 0 auto;
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+}
+.cart-wrapper:hover {
+   box-shadow: 10px 10px 20px -5px grey;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.button-wrapper button {
+  width: 150px;
+  height: 35px;
+  background-color: #F3D1E9;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0B7ACB;
+  transition: all 0.3s ease-in-out;
+}
+.button-wrapper button:hover {
+  background-color: #0B7ACB;
+  color: #fff;
+}
+.name-wrapper span{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
 }
