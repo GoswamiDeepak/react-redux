@@ -1,165 +1,75 @@
-import React from 'react'
 
-const Home = () => {
-  return (
-    <div >
-        <h1>Home Component</h1>
-        <div className='product-design'>
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
+import { Product } from './Product'
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
+const Home = (props) => {
+    console.log('home', props)
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
+    const getid = (id) => {
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
+        const data = Product.filter((product) => {
+            return product.id == id
+        })
+        props.addToCartHandler(data);
+    }
+ 
+    const removeid =(id)=>{
+        alert(id);
+        const data = props.cartItem.cartItem.filter((product) => {
+            return product.id !== id
+        })
+        props.removeToCartHandler(data);
+    }
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
-            </div>
+    return (
+        <div >
+            <h1>Shopping cart<sup>{props.cartItem.cartItem.length}</sup></h1>
+            <div className='product-design'>
+                {
+                    Product.map((product, index) => {
+                        return (
+                            <>
+                                <div key={{ index }}>
 
-            <div className='cart-wrapper'>
-                <div className='img-wrapper item'>
-                    <img src="https://m.media-amazon.com/images/I/51OYalGc88L._SY741_.jpg" />
-                </div>
-                <div className='name-wrapper item'>
-                    <span>
-                        IQOO
-                    </span>
-                    <span>
-                    Price : $30,000
-                    </span>
-                </div>
-                <div className='button-wrapper item'>
-                    <button>
-                        Add To Card
-                    </button>
-                </div>
+                                    <div className='cart-wrapper' >
+                                        <div className='img-wrapper item'>
+                                            <img src={product.image} />
+                                        </div>
+                                        <div className='name-wrapper item' >
+                                            <span>
+                                                {product.name}
+                                            </span>
+                                            <span>
+                                                {product.price}
+                                            </span>
+                                        </div>
+                                        <div className='button-format'>
+                                            <div className='button-wrapper item' >
+                                                <button onClick={() => getid(product.id)}>
+                                                    Add To Card
+                                                </button>
+                                            </div>
+
+                                            <div className='remove-items' >
+                                                <button onClick={() => removeid(product.id)}>
+                                                    Remove Card
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                    })
+                }
+
+
+
+
             </div>
-           
         </div>
-    </div>
-  )
+    )
 }
 
 export default Home

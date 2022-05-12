@@ -4,6 +4,10 @@
   /* font-family: 'Karla', sans-serif; */
   font-family: 'Poppins', sans-serif;
 }
+html {
+  text-align: center;
+  height: 150vh;
+}
 .product-design {
   /* display: flex;
   justify-content: space-between;
@@ -14,7 +18,7 @@
 }
 .cart-wrapper {
   border: 1px solid blueviolet;
-  width: 250px;
+  width: 310px;
   height: 250px;
   display: flex;
   justify-content: center;
@@ -32,7 +36,10 @@
 .cart-wrapper:hover {
    box-shadow: 10px 10px 20px -5px grey;
 }
-
+.button-format {
+  display: flex;
+  justify-content: space-between;
+}
 .button-wrapper button {
   width: 150px;
   height: 35px;
@@ -42,10 +49,25 @@
   font-size: 14px;
   font-weight: 500;
   color: #0B7ACB;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .button-wrapper button:hover {
   background-color: #0B7ACB;
+  color: #fff;
+}
+.remove-items button  {
+  width: 150px;
+  height: 35px;
+  background-color: #F3D1E9;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0B7ACB;
+  transition: all 0.2s ease-in-out;
+}
+.remove-items button:hover {
+  background-color: #B55A30;
   color: #fff;
 }
 .name-wrapper span{
